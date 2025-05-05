@@ -1,5 +1,6 @@
 @import "tailwindcss";
 /* @import "daisyui"; */
+@plugin "daisyui";
 .guos{
     transition: all 0.3s ease-in-out;
 }

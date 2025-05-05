@@ -1,5 +1,4 @@
-
-import { createBrowserRouter } from "react-router-dom";
+import {createBrowserRouter, redirect} from "react-router-dom";
 import Home from "../viwes/home/Home";
 import DiscoverMusic from "../viwes/home/page/DiscoverMusic";
 import MusicScene from "../viwes/home/page/MusicScene";
@@ -11,63 +10,69 @@ import Csong from "../viwes/home/Rplaylists/Csong";
 import Eamerica from "../viwes/home/Rplaylists/Eamerica";
 import Sad from "../viwes/home/Rplaylists/Sad";
 import Gedlist from "../viwes/home/Gedlist";
+
 const routers = createBrowserRouter([
     {
-        path: "/",
-        Component: Home, 
+        path: '/',
+        Component: Home,
         children: [
             {
-                path: "/Drecommendations",
+                path:'/',
+                loader:()=>{
+                    return redirect('Drecommendations')
+                },
+            },
+            {
+                path: 'Drecommendations',
                 Component: Drecommendations,
-            
+
             },
             {
-                path: "/Csong",
+                path: 'Csong',
                 Component: Csong,
-            
+
             },
             {
-                path: "/Eamerica",
+                path: 'Eamerica',
                 Component: Eamerica,
-            
+
             },
             {
-                path: "/Sad",
+                path: 'Sad',
                 Component: Sad,
-            
+
             },
         ]
     },
     {
-        path:"/Gedlist",
+        path:'Gedlist',
         Component: Gedlist,
     },
     {
-        path: "/DiscoverMusic",
+        path: 'DiscoverMusic',
         Component: DiscoverMusic,
-    
-    }, 
+
+    },
     {
-        path: "/More",
+        path: 'More',
         Component: More,
-    
+
     },
     {
-        path: "/MusicScene",
+        path: 'MusicScene',
         Component: MusicScene,
-    
+
     },
     {
-        path: "/MyMusic",
+        path: 'MyMusic',
         Component: MyMusic,
-    
+
     },
     {
-        path: "/NOn",
+        path: 'NOn',
         Component: NOn,
-    
+
     },
-   
 ])
 
 export default routers;
